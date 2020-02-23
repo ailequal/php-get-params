@@ -4,7 +4,7 @@
  a “Boolean”, altrimenti stampare una stringa rossa. -->
 
 <?php
-	$psw = $_GET['pwd'];
+	$psw = $_GET['passwd'];
 	if ($psw === 'Boolean') {
 		$class = 'correct';
 		$message = 'Correct password.';

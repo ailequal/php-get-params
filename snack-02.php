@@ -6,7 +6,33 @@
  è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”. -->
 
 <?php
-	echo 'hello world';
+	$name = $_GET['name'];
+	$email = $_GET['email'];
+	$age = $_GET['age'];
+	$message = 'Access denied';
+
+	if (strlen($name) > 3 && filter_var($email, FILTER_VALIDATE_EMAIL) && is_numeric($age)) {
+		$message = 'Access granted';
+	}
+
+	// // name must be longer than three letters
+	// if (strlen($name) > 3) {
+	// 	echo 'Name OK';
+	// } else {
+	// 	echo 'Name BAD';
+	// }
+	// // email must have a dot and an at
+	// if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	// 	echo 'Email OK';
+	// } else {
+	// 	echo 'Email BAD';
+	// }
+	// // age must be a number
+	// if (is_numeric($age)) {
+	// 	echo 'Age OK';
+	// } else {
+	// 	echo 'Age BAD';
+	// }
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +51,6 @@
 </head>
 <body>
 	<h1>snack-02 - php-get-params</h1>
-	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut fugiat ullam neque maxime quod ratione ipsam labore corrupti quidem vel. Modi cum sequi id mollitia iusto quo illo ad facilis.</p>
+	<h2><?php echo $message ?></h2>
 </body>
 </html>
